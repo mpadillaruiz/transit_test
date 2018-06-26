@@ -11,6 +11,19 @@ var header=[];
 //Initializing application
 var app= express();
 
+//middleware to allow cors
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Pass to next layer of middleware
+    next();
+});
+
 //Reading stops from the file system and process it into a javascript array of objects
 fs.readFile('data/stops.txt', 'utf8', function(err,data) {
 
@@ -47,8 +60,8 @@ fs.readFile('data/stops.txt', 'utf8', function(err,data) {
       }
 
       //After loading stops, start listening to upcoming connections
-      app.listen(3000,()=>{
-        console.log('Started on port 3000');
+      app.listen(3001,()=>{
+        console.log('Started on port 3001');
       });
 
 });

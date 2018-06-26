@@ -1,0 +1,47 @@
+
+.marker-cluster-small div {
+	background-color: rgba(0, 0, 0, 0.6);
+	}
+
+.marker-cluster-medium div {
+	background-color: rgba(0, 0, 0, 0.6);
+	}
+
+
+.marker-cluster-large div {
+	background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	/* IE 6-8 fallback colors */
+
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgba(0, 0, 0, 0.6);
+	}
+
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgba(0, 0, 0, 0.6);
+	}
+
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+  background-image: url('https://image.flaticon.com/icons/svg/53/53112.svg');
+
+	text-align: center;
+	border-radius: 50px;
+	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color:white;
+	}
+.marker-cluster span {
+	line-height: 30px;
+}
