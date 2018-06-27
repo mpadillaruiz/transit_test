@@ -28,8 +28,6 @@ fs.readFile('data/stops.txt', 'utf8', function(err,data) {
   //If you load the data locally, there is a \r before the \n so you can use this statement
   //let lines = data.split("\r\n");
 
-  console.log(lines.length);
-
   for (let i = 0; i<lines.length; i++) {
       //If the line is empty, continue
       if(lines[i]==""){
