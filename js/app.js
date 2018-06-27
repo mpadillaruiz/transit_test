@@ -60,11 +60,13 @@ $.ajax(url, {
 			for ( var i=0; i < data.length; ++i ){
 				//As realized analyzing the data, each station is triplicated (N/S)
 				//Only parent stops will be added (stops without a parent_station or location type 1)
-				if(data[i].parent_station==""){
-				 var m = L.marker( [data[i].stop_lat, data[i].stop_lon] , {icon: subwayStop}).bindTooltip(data[i].stop_name,{direction:'top',permanent:false})
-						.bindPopup( '<p>' + data[i].stop_id + '</p>' );
-					markersCluster.addLayer(m);
-				}
+				if(data[i].location_type==='1'){
+						//Construct a marker with the stops properties
+						var m= L.marker( [data[i].stop_lat, data[i].stop_lon],{icon: subwayStop}).bindTooltip(data[i].stop_name,{direction:'left',offset:L.point(-10,0),permanent:false})
+						.bindPopup( '<span>ID: ' + data[i].stop_id + '<br>Name: ' + data[i].stop_name + '<br>Coordinates: ' + data[i].stop_lat + ', '+data[i].stop_lon+'</span>' );
+						//Add individual marker to the cluster group
+						markersCluster.addLayer(m);
+			}
 			}
 
 		},

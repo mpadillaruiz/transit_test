@@ -9,12 +9,12 @@ var stops = [];
 //Initializing application
 var app= express();
 
-/*Middleware to allow cors (if neccesary)
+//Middleware to allow cors (if neccesary)
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     next();
-});*/
+});
 
 //Reading stops from the file system and process it into a javascript array of objects
 fs.readFile('data/stops.txt', 'utf8', function(err,data) {
