@@ -1,56 +1,51 @@
-//Express to deploy API
+//Importing neccesary packages
 var express = require('express');
-
 const _ = require('underscore');
-
 var fs = require('fs');
 
+//Global variables that will store each entities once loaded from txt file
 var stops = [];
-var header=[];
 
 //Initializing application
 var app= express();
 
-//middleware to allow cors
+/*Middleware to allow cors (if neccesary)
 app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Pass to next layer of middleware
     next();
-});
+});*/
 
 //Reading stops from the file system and process it into a javascript array of objects
 fs.readFile('data/stops.txt', 'utf8', function(err,data) {
 
-  let splitted = data.split("\r\n");
+  //Variable to store the file header
+  let header=[];
 
-  for (let i = 0; i<splitted.length; i++) {
+  //Split each line of the file
+  let lines = data.split("\r\n");
+
+  for (let i = 0; i<lines.length; i++) {
       //If the line is empty, continue
-      if(splitted[i]==""){
+      if(lines[i]==""){
           continue
       }
       //Read each field value in the line
-      let splitted3= splitted[i].split(",");
-        //Create a stop
+      let fieldValues= lines[i].split(",");
+        //Create a stop objects
         var stop={}
         //Go through all the fields
-        for (let h = 0; h<splitted3.length; h++) {
+        for (let h = 0; h<fieldValues.length; h++) {
             //If it is the first line, we are in the header.
             if (i==0){
               //Store header values.
-              header.push(splitted3[h])}
+              header.push(fieldValues[h])}
             else{
               //Else, the line is a stop.
               //Take field names from header
               let field = header[h];
               //Add field to the object
-              stop[field] = splitted3[h];
-
+              stop[field] = fieldValues[h];
             }
         }
       //If the stop object is not empty, add it to the stops array
