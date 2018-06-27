@@ -24,8 +24,8 @@ fs.readFile('data/stops.txt', 'utf8', function(err,data) {
 
   //Split each line of the file
   let lines = data.split("\n");
-  //When you upload the data to github, it looks like it eliminates the \r.
-  //If you load the data locally, there is a \r before so you can use this statement
+  //When you upload the data to github (or when you download it), it looks like it eliminates the \r.
+  //If you load the data locally, there is a \r before the \n so you can use this statement
   //let lines = data.split("\r\n");
 
   console.log(lines.length);

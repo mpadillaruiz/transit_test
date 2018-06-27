@@ -2,9 +2,10 @@ This application has the following components:
 - Node.js server that loads GTFS and exposes an API with the subway stops.
 - Frontend App that shows all the stops on a map (developed using jquery/AJAX).
 
-To start the application, run server first (in project directory):
+To start the application, build dependencies and run server first (in project directory):
 
-# `node server.js`
+# `npm install`
+# `npm start`
 
 Server listens to http://localhost:3001<br>
 Open index.html on a browser to see the web application.<br>
