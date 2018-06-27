@@ -23,7 +23,12 @@ fs.readFile('data/stops.txt', 'utf8', function(err,data) {
   let header=[];
 
   //Split each line of the file
-  let lines = data.split("\r\n");
+  let lines = data.split("\n");
+  //When you upload the data to github, it looks like it eliminates the \r.
+  //If you load the data locally, there is a \r before so you can use this statement
+  //let lines = data.split("\r\n");
+
+  console.log(lines.length);
 
   for (let i = 0; i<lines.length; i++) {
       //If the line is empty, continue
@@ -37,9 +42,12 @@ fs.readFile('data/stops.txt', 'utf8', function(err,data) {
         //Go through all the fields
         for (let h = 0; h<fieldValues.length; h++) {
             //If it is the first line, we are in the header.
+
             if (i==0){
               //Store header values.
-              header.push(fieldValues[h])}
+
+			header.push(fieldValues[h]);}
+			 // console.log(header);}
             else{
               //Else, the line is a stop.
               //Take field names from header
