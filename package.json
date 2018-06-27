@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/mpadillaruiz/transit_test#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "underscore": "^1.9.1"
   }
 }
